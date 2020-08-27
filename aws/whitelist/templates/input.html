@@ -1,0 +1,11 @@
+<h1>IP whitelist details</h1>
+<form action="/" method="post">
+    {% csrf_token %}
+
+    <label for="port">Port:</label>
+    <input type="text" id="port" name="port" required><br><br>
+    <label for="ip">IP to whitelist:</label>
+    <input type="text" id="ip" name="ip" required><br><br>
+        
+<input type="submit" value="Add">
+</form>
