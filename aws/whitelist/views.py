@@ -9,10 +9,8 @@ import os
 @login_required
 def index(request):
 
-    print (request.method)
     if request.method == 'POST':
-        print(request.POST['port'])
-        print(request.POST['ip'])
+        print('Adding port: ' + request.POST['port'] + ', for IP: ' + request.POST['ip'])
         ec2 = boto3.client('ec2')
         security_group_id = os.environ['SG']
         data = ec2.authorize_security_group_ingress(
@@ -27,6 +25,7 @@ def index(request):
                 }]
             }
         ])
+        print ('response from aws=' + data)
         return render(request, 'success.html', {
             
         })
