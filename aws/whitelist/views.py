@@ -25,7 +25,7 @@ def index(request):
                 }]
             }
         ])
-        print ('response from aws=' + data)
+        print ('response from aws=' + str(data))
         return render(request, 'success.html', {
             
         })
